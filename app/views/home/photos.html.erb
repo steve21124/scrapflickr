@@ -1,4 +1,13 @@
-<% form_tag("index") do %>
+<form id="amt_contform" method="POST" action="http://67.207.129.81:3000/home/photos?keyword_name=architecture">
+	<input type="hidden" id="turkId" name="turkId" value='<%=params[:workerId]%>'>	
+	<input type="hidden" id="assignmentId" name="assignmentId" value='<%=params[:assignmentId]%>'>
+	<input id="submitButton" type="submit" name="Begin" value="Begin" 
+	<?php 
+		if ($_REQUEST['workerId'] == "") {
+			echo 'onclick="alert(\'Please accept this HIT before continuing.\'); return false;"';
+		}
+	?> 
+	>
   <%= hidden_field_tag(:keyword_id, @keyword.id) %>
   <div class="flickr">
     <% @scrap_photos.each do |scrap_photo| -%>
@@ -15,4 +24,4 @@
     <div style="clear:both;"></div>
     <%= submit_tag("Submit") %>
   </div>
-<% end %>
+</form>
