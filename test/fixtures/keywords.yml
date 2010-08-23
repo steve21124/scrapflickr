@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  keyword_name: MyString
+  keyword_sanitize: MyString
+  source: MyString
+  status: MyString
+
+two:
+  keyword_name: MyString
+  keyword_sanitize: MyString
+  source: MyString
+  status: MyString

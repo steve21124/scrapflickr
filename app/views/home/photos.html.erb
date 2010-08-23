@@ -1,0 +1,18 @@
+<% form_tag("index") do %>
+  <%= hidden_field_tag(:keyword_id, @keyword.id) %>
+  <div class="flickr">
+    <% @scrap_photos.each do |scrap_photo| -%>
+      <% if photo = @photos[scrap_photo.id] %>
+        <div style="float:left;text-align:center;border-bottom:1px solid #ddd;">
+          <label>
+            <%= image_tag(photo.url(:square), :class => 'flickr_photo', :title => photo.title, :border => 0, :size => '75x75') %>
+            <br />
+            <%= check_box_tag("selected_photos[]", scrap_photo.id, false) %>
+          </label>
+        </div>
+      <% end %>
+    <% end -%>
+    <div style="clear:both;"></div>
+    <%= submit_tag("Submit") %>
+  </div>
+<% end %>

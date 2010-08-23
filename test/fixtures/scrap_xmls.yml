@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  keyword_id: 1
+  xml_file: MyString
+  status: MyString
+
+two:
+  keyword_id: 1
+  xml_file: MyString
+  status: MyString

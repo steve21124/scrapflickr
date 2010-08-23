@@ -1,0 +1,23 @@
+<p>
+  <b>Keyword name:</b>
+  <%=h @keyword.keyword_name %>
+</p>
+
+<p>
+  <b>Keyword sanitize:</b>
+  <%=h @keyword.keyword_sanitize %>
+</p>
+
+<p>
+  <b>Source:</b>
+  <%=h @keyword.source %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @keyword.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_keyword_path(@keyword) %> |
+<%= link_to 'Back', keywords_path %>

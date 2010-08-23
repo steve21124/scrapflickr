@@ -1,0 +1,2 @@
+module ScrapXmlsHelper
+end

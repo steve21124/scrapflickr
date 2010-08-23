@@ -1,0 +1,43 @@
+<%#= render_flickr_sidebar_widget(FLICKR_ID, photo_count = 6, columns = 2) %>
+<table cellpadding="8">
+  <tr align="left" valign="top">
+    <td style="height:100%;overflow:scroll;overflow-x:auto;overflow-y:auto;">
+      <table border="1" cellspacing="0" cellpadding="4">
+        <thead>
+          <tr>
+            <th>Keyword</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @keywords.each do |keyword| %>
+            <tr>
+              <td>
+                <%= keyword.status == 'Done' ?
+                  '<em>'+h(keyword.keyword_name)+'</em>' :
+                  link_to(h(keyword.keyword_name), {:action => :photos, :keyword_name => keyword.keyword_name}) %></td>
+              <td><em><%=h keyword.status %></em></td>
+            </tr>
+          <% end %>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2" style="text-align:center">
+              <%= will_paginate(@keywords) %>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </td>
+    <td>
+      <div class="flickr">
+        <% @scrap_photos.each do |scrap_photo| -%>
+          <div style="float:left">
+            <%= image_tag(scrap_photo.url_square, :class => 'flickr_photo', :border => 0, :size => '75x75') %>
+          </div>
+        <% end if @scrap_photos -%>
+        <div style="clear:both;"></div>
+      </div>
+    </td>
+  </tr>
+</table>

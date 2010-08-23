@@ -1,0 +1,72 @@
+keywords = [
+  'architecture',
+  'art',
+  'australia',
+  'beach',
+  'birthday',
+  'blue',
+  'bw',
+  'california',
+  'canada',
+  'canon',
+  'china',
+  'christmas',
+  'city',
+  'concert',
+  'england',
+  'europe',
+  'family',
+  'festival',
+  'flower',
+  'flowers',
+  'food',
+  'franch',
+  'friends',
+  'fun',
+  'germany',
+  'green',
+  'italy',
+  'japan',
+  'london',
+  'music',
+  'nature',
+  'new',
+  'newyork',
+  'night',
+  'nikon',
+  'nyc',
+  'paris',
+  'park',
+  'party',
+  'people',
+  'portrait',
+  'red',
+  'sanfrancisco',
+  'sky',
+  'snow',
+  'spain',
+  'spain',
+  'street',
+  'summer',
+  'sunset',
+  'taiwan',
+  'travel',
+  'trip',
+  'uk',
+  'usa',
+  'vacation',
+  'water',
+  'wedding',
+  'white',
+  'winter'
+]
+
+Keyword.destroy_all
+
+keywords.each do |i|
+  Keyword.find_or_create_by_keyword_name(i)
+end
+
+(1..100).each do |i|
+  Keyword.find_or_create_by_keyword_name("keyword_#{i}")
+end

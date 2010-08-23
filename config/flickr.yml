@@ -1,0 +1,5 @@
+# config/flickr.yml
+
+key: "12b22169465feb08fa04f64e9117baa8"
+secret: "9ef490972a140aa9"
+token_cache: "token_cache.yml"

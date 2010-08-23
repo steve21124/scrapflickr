@@ -1,0 +1,24 @@
+<h1>Listing scrap_xmls</h1>
+
+<table>
+  <tr>
+    <th>Keyword</th>
+    <th>Xml file</th>
+    <th>Status</th>
+  </tr>
+
+<% @scrap_xmls.each do |scrap_xml| %>
+  <tr>
+    <td><%=h scrap_xml.keyword_id %></td>
+    <td><%=h scrap_xml.xml_file %></td>
+    <td><%=h scrap_xml.status %></td>
+    <td><%= link_to 'Show', scrap_xml %></td>
+    <td><%= link_to 'Edit', edit_scrap_xml_path(scrap_xml) %></td>
+    <td><%= link_to 'Destroy', scrap_xml, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New scrap_xml', new_scrap_xml_path %>

@@ -1,0 +1,35 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  keyword_id: 1
+  scrap_xml_id: 1
+  title: MyString
+  url_square: MyString
+  url_thumbnail: MyString
+  url_small: MyString
+  url_medium: MyString
+  url_large: MyString
+  url_original: MyString
+  description: MyString
+  author: MyString
+  lisence: MyString
+  original_id: 1
+  status: 1
+  selected_photo: 1
+
+two:
+  keyword_id: 1
+  scrap_xml_id: 1
+  title: MyString
+  url_square: MyString
+  url_thumbnail: MyString
+  url_small: MyString
+  url_medium: MyString
+  url_large: MyString
+  url_original: MyString
+  description: MyString
+  author: MyString
+  lisence: MyString
+  original_id: 1
+  status: 1
+  selected_photo: 1

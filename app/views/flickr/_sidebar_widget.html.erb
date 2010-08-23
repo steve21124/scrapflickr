@@ -1,0 +1,15 @@
+<div class="flickr">
+  <ul>
+    <%# require 'pp' %>
+    <%# pp photos %>
+    <% photos.each do |row| -%>
+      <% row.each do |p| %>
+        <% if p %>
+          <div><%= link_to(image_tag(p.url(:square), :class => 'flickr_photo', :title => p.title, :border => 0, :size => '75x75'), p.url_photopage) rescue nil %></div>
+        <% end %>
+      <% end %>
+    <% end -%>
+  </ul>
+</div>
+
+<%#=debug photos %>

@@ -1,0 +1,24 @@
+<h1>Editing scrap_xml</h1>
+
+<% form_for(@scrap_xml) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :keyword_id %><br />
+    <%= f.text_field :keyword_id %>
+  </p>
+  <p>
+    <%= f.label :xml_file %><br />
+    <%= f.text_field :xml_file %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @scrap_xml %> |
+<%= link_to 'Back', scrap_xmls_path %>

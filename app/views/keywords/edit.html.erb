@@ -1,0 +1,28 @@
+<h1>Editing keyword</h1>
+
+<% form_for(@keyword) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :keyword_name %><br />
+    <%= f.text_field :keyword_name %>
+  </p>
+  <p>
+    <%= f.label :keyword_sanitize %><br />
+    <%= f.text_field :keyword_sanitize %>
+  </p>
+  <p>
+    <%= f.label :source %><br />
+    <%= f.text_field :source %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @keyword %> |
+<%= link_to 'Back', keywords_path %>

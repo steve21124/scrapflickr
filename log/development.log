@@ -1,0 +1,1077 @@
+# Logfile created on Mon Aug 23 23:07:38 +0700 2010  [4;36;1mSQL (126.9ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 23:07:51) [GET]
+  [4;35;1mKeyword Load (793.5ms)[0m   [0mSELECT * FROM `keywords` ORDER BY status, keyword_name[0m
+  [4;36;1mScrapPhoto Load (354.6ms)[0m   [0;1mSELECT * FROM `scrap_photos` WHERE (`scrap_photos`.`selected_photo` = 1) [0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mKeyword Columns (148.3ms)[0m   [0mSHOW FIELDS FROM `keywords`[0m
+  [4;36;1mScrapPhoto Columns (4.3ms)[0m   [0;1mSHOW FIELDS FROM `scrap_photos`[0m
+Completed in 1658ms (View: 178, DB: 1428) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 23:08:11) [GET]
+  Parameters: {"page"=>"2"}
+  [4;36;1mKeyword Load (0.4ms)[0m   [0;1mSELECT * FROM `keywords` ORDER BY status, keyword_name[0m
+  [4;35;1mScrapPhoto Load (0.4ms)[0m   [0mSELECT * FROM `scrap_photos` WHERE (`scrap_photos`.`selected_photo` = 1) [0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;36;1mKeyword Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `keywords`[0m
+  [4;35;1mScrapPhoto Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `scrap_photos`[0m
+Completed in 78ms (View: 52, DB: 4) | 200 OK [http://localhost/?page=2]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#photos (for 127.0.0.1 at 2010-08-23 23:08:22) [GET]
+  Parameters: {"keyword_name"=>"wedding"}
+  [4;35;1mKeyword Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `keywords`[0m
+  [4;36;1mKeyword Load (0.8ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'wedding') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (129.7ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'wedding' AND `keywords`.id <> 57) LIMIT 1[0m
+  [4;35;1mKeyword Update (33.4ms)[0m   [0mUPDATE `keywords` SET `updated_at` = '2010-08-23 16:08:22', `status` = 'Done' WHERE `id` = 57[0m
+  [4;36;1mSQL (96.2ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mScrapXml Columns (30.4ms)[0m   [0mSHOW FIELDS FROM `scrap_xmls`[0m
+  [4;36;1mSQL (5.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mScrapXml Create (2.0ms)[0m   [0mINSERT INTO `scrap_xmls` (`created_at`, `updated_at`, `keyword_id`, `xml_file`, `status`) VALUES('2010-08-23 16:08:22', '2010-08-23 16:08:22', 57, NULL, NULL)[0m
+  [4;36;1mSQL (85.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mScrapXml Update (0.9ms)[0m   [0;1mUPDATE `scrap_xmls` SET `updated_at` = '2010-08-23 16:08:22', `status` = 1 WHERE `id` = 5[0m
+  [4;35;1mSQL (82.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mScrapXml Update (0.5ms)[0m   [0mUPDATE `scrap_xmls` SET `updated_at` = '2010-08-23 16:08:30', `status` = 2 WHERE `id` = 5[0m
+  [4;36;1mSQL (77.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mScrapPhoto Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `scrap_photos`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mScrapPhoto Create (0.7ms)[0m   [0mINSERT INTO `scrap_photos` (`url_large`, `original_id`, `url_small`, `created_at`, `latitude`, `place_id`, `woeid`, `title`, `author`, `farm`, `url_original`, `license`, `updated_at`, `accuracy`, `url_square`, `selected_photo`, `server`, `tags`, `is_family`, `keyword_id`, `scrap_xml_id`, `description`, `longitude`, `is_public`, `url_medium`, `status`, `secret`, `url_thumbnail`, `is_friend`) VALUES('http://farm4.static.flickr.com/3588/3468146088_615f88947d_b.jpg', 3468146088, 'http://farm4.static.flickr.com/3588/3468146088_615f88947d_m.jpg', '2010-08-23 16:08:45', NULL, NULL, NULL, 'Alessia e Dario, amigurumi wedding couple', '•°°• ♥♡ baghi ♡♥ •°°•', '4', 'http://farm4.static.flickr.com/3588/3468146088_8e0574368b_o.jpg', 6, '2010-08-23 16:08:45', NULL, 'http://farm4.static.flickr.com/3588/3468146088_615f88947d_s.jpg', NULL, '3588', 'bear wedding cute animal groom bride beige couple handmade crochet felt softie cotton kawaii amigurumi handcraft savona rainbowproject', '0', 57, 5, 'For two my best friend with love ^__^\n\nPattern on my shop, see my profile for info\n\n<a href=\"http://baghisblog.blogspot.com/\" rel=\"nofollow\">baghisblog.blogspot.com/</a>', NULL, '1', 'http://farm4.static.flickr.com/3588/3468146088_615f88947d.jpg', NULL, '615f88947d', 'http://farm4.static.flickr.com/3588/3468146088_615f88947d_t.jpg', '0')[0m
+  [4;36;1mSQL (72.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mScrapPhoto Create (0.9ms)[0m   [0;1mINSERT INTO `scrap_photos` (`url_large`, `original_id`, `url_small`, `created_at`, `latitude`, `place_id`, `woeid`, `title`, `author`, `farm`, `url_original`, `license`, `updated_at`, `accuracy`, `url_square`, `selected_photo`, `server`, `tags`, `is_family`, `keyword_id`, `scrap_xml_id`, `description`, `longitude`, `is_public`, `url_medium`, `status`, `secret`, `url_thumbnail`, `is_friend`) VALUES('http://farm2.static.flickr.com/1130/1045750850_cd6d3df620_b.jpg', 1045750850, 'http://farm2.static.flickr.com/1130/1045750850_cd6d3df620_m.jpg', '2010-08-23 16:08:55', NULL, NULL, NULL, 'The Kiss', 'WTL photos', '2', 'http://farm2.static.flickr.com/1130/1045750850_dcbd888b0a_o.jpg', 6, '2010-08-23 16:08:55', NULL, 'http://farm2.static.flickr.com/1130/1045750850_cd6d3df620_s.jpg', NULL, '1130', 'wedding love groom bride kiss couple sweet marriage happiness romance romantic forever closeness magical amore matrimonio beso dolcezza bacio sposi togetherforever wtl supershot superbmasterpiece diamondclassphotographer flickrdiamond', '0', 57, 5, '<b>Is not a kiss the very autograph of love? ~Henry Finck </b>\n\nA photo I took of my brother\'s wedding\n\n#271 on August 7, 2007', NULL, '1', 'http://farm2.static.flickr.com/1130/1045750850_cd6d3df620.jpg', NULL, 'cd6d3df620', 'http://farm2.static.flickr.com/1130/1045750850_cd6d3df620_t.jpg', '0')[0m
+  [4;35;1mSQL (87.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mScrapPhoto Create (0.7ms)[0m   [0mINSERT INTO `scrap_photos` (`url_large`, `original_id`, `url_small`, `created_at`, `latitude`, `place_id`, `woeid`, `title`, `author`, `farm`, `url_original`, `license`, `updated_at`, `accuracy`, `url_square`, `selected_photo`, `server`, `tags`, `is_family`, `keyword_id`, `scrap_xml_id`, `description`, `longitude`, `is_public`, `url_medium`, `status`, `secret`, `url_thumbnail`, `is_friend`) VALUES('http://farm4.static.flickr.com/3158/2913395441_2f01f424c3_b.jpg', 2913395441, 'http://farm4.static.flickr.com/3158/2913395441_2f01f424c3_m.jpg', '2010-08-23 16:08:59', NULL, NULL, NULL, 'Furgoneta de boda', 'Maximo Lopez', '4', 'http://farm4.static.flickr.com/3158/2913395441_aa60e7726e_o.jpg', 6, '2010-08-23 16:08:59', NULL, 'http://farm4.static.flickr.com/3158/2913395441_2f01f424c3_s.jpg', NULL, '3158', 'wedding hippy hippie soe hdr furgoneta ג kartpostal platinumphoto fragoneta ltytr1 bugbus ן flickrestrellas quarzoespecial hdraward хаэн χαέν ハエン', '0', 57, 5, 'Serie: <b>Quedada flickeros Granada y Jaen (Lagarto)</b>\n\nWedding\'s &quot;Bug bus&quot;\n\nMas fotos de la furgoneta aqui, de Jlanta <a href=\"http://www.flickr.com/photos/jlanta/2931352834/?addedcomment=1#comment72157607936732255\">www.flickr.com/photos/jlanta/2931352834/?addedcomment=1#c...</a>', NULL, '1', 'http://farm4.static.flickr.com/3158/2913395441_2f01f424c3.jpg', NULL, '2f01f424c3', 'http://farm4.static.flickr.com/3158/2913395441_2f01f424c3_t.jpg', '0')[0m
+  [4;36;1mSQL (55.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mScrapPhoto Create (0.8ms)[0m   [0;1mINSERT INTO `scrap_photos` (`url_large`, `original_id`, `url_small`, `created_at`, `latitude`, `place_id`, `woeid`, `title`, `author`, `farm`, `url_original`, `license`, `updated_at`, `accuracy`, `url_square`, `selected_photo`, `server`, `tags`, `is_family`, `keyword_id`, `scrap_xml_id`, `description`, `longitude`, `is_public`, `url_medium`, `status`, `secret`, `url_thumbnail`, `is_friend`) VALUES('http://farm2.static.flickr.com/1082/922265963_c5da817b87_b.jpg', 922265963, 'http://farm2.static.flickr.com/1082/922265963_c5da817b87_m.jpg', '2010-08-23 16:09:07', NULL, NULL, NULL, 'Runaway Bride', 'WTL photos', '2', 'http://farm2.static.flickr.com/1082/922265963_414054b3a4_o.jpg', 6, '2010-08-23 16:09:07', NULL, 'http://farm2.static.flickr.com/1082/922265963_c5da817b87_s.jpg', NULL, '1082', 'wedding roses bw color beautiful yellow hair bride hairdo style curls selection bouquet delicate matrimonio sposa updo blueribbonwinner wtl p1f1 aplusphoto', '0', 57, 5, '', NULL, '1', 'http://farm2.static.flickr.com/1082/922265963_c5da817b87.jpg', NULL, 'c5da817b87', 'http://farm2.static.flickr.com/1082/922265963_c5da817b87_t.jpg', '0')[0m
+  [4;35;1mSQL (96.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mScrapPhoto Create (0.8ms)[0m   [0mINSERT INTO `scrap_photos` (`url_large`, `original_id`, `url_small`, `created_at`, `latitude`, `place_id`, `woeid`, `title`, `author`, `farm`, `url_original`, `license`, `updated_at`, `accuracy`, `url_square`, `selected_photo`, `server`, `tags`, `is_family`, `keyword_id`, `scrap_xml_id`, `description`, `longitude`, `is_public`, `url_medium`, `status`, `secret`, `url_thumbnail`, `is_friend`) VALUES('http://farm1.static.flickr.com/160/434639566_b5d33e9511_b.jpg', 434639566, 'http://farm1.static.flickr.com/160/434639566_b5d33e9511_m.jpg', '2010-08-23 16:09:12', NULL, NULL, NULL, 'Frank Gehry Wedding Cake', 'Andrew Morrell Photography', '1', 'http://farm1.static.flickr.com/160/434639566_59cb375af6_o.jpg', 6, '2010-08-23 16:09:12', NULL, 'http://farm1.static.flickr.com/160/434639566_b5d33e9511_s.jpg', NULL, '160', 'flowers wedding love cake stars sweet weddingcake funky icing canon85mm12 anawesomeshot', '0', 57, 5, 'Well, not exactly. But it kinda looks like a cake he\'d design. The cake IS a wedding cake, designed for a client by her sister. Super creative, and - from all accounts - super tasty. Coolest cake I\'ve ever seen. <a href=\"http://www.andrewmorrell.com\">More at my website.</a>', NULL, '1', 'http://farm1.static.flickr.com/160/434639566_b5d33e9511.jpg', NULL, 'b5d33e9511', 'http://farm1.static.flickr.com/160/434639566_b5d33e9511_t.jpg', '0')[0m
+  [4;36;1mSQL (52.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mScrapPhoto Create (0.6ms)[0m   [0;1mINSERT INTO `scrap_photos` (`url_large`, `original_id`, `url_small`, `created_at`, `latitude`, `place_id`, `woeid`, `title`, `author`, `farm`, `url_original`, `license`, `updated_at`, `accuracy`, `url_square`, `selected_photo`, `server`, `tags`, `is_family`, `keyword_id`, `scrap_xml_id`, `description`, `longitude`, `is_public`, `url_medium`, `status`, `secret`, `url_thumbnail`, `is_friend`) VALUES('http://farm2.static.flickr.com/1232/755285423_edf4d50bca_b.jpg', 755285423, 'http://farm2.static.flickr.com/1232/755285423_edf4d50bca_m.jpg', '2010-08-23 16:09:22', NULL, NULL, NULL, 'We\'re Married!', 'lemonjenny', '2', 'http://farm2.static.flickr.com/1232/755285423_547232c92e_o.jpg', 6, '2010-08-23 16:09:22', NULL, 'http://farm2.static.flickr.com/1232/755285423_edf4d50bca_s.jpg', NULL, '1232', 'wedding rain umbrella groom bride utah kiss steve jenny ceremony rainy spruces 7707', '0', 57, 5, 'So, we did it! Everything was beautiful, and lovely and we had a blast. Everything did not go as planned, it was actually a totally crazy day... but it all turned out perfect all the same.\n\nIt was beautiful, sunny, and BLAZING hot (sweating, majorly) - and then about 1/2 hour before the ceremony, an isolated raincloud isolated itself right over our ceremony spot!!! At first I was freaking out, but then I looked around, and saw how refreshed and cool and happy everyone was, and realized it was BEAUTIFUL. It was just a sprinkle - too light to be called rain - but I pulled out an umbrella anyway to stand under while I waited for the ceremony to begin. The temperature dropped a few degrees to a perfect 85-90 degrees.\n\nOnce the ceremony began, I ditched the umbrella, and down the aisle we went. \n\nIt was really amazing, because the song I walked down to was called &quot;Brighter than Sunshine&quot; and the lyrics go... &quot;Let the rain fall, I don\'t care, I\'m yours and certainly your mine, and it\'s brighter than sunshine...&quot;\n\nIt was absolutely cinematic and everyone was crying! It was awesome.\n\nOnce we were both at the Altar, the sprinkling got a bit heavier, and we brought the umbrella back. Our reverand (Geoff) held it above us. It was actually really cute.\n\nTons more pictures on <a href=\"http://www.jen-and-steve.com\">our website.</a>\n\n[#16 in Explore for 7/8/07!]', NULL, '1', 'http://farm2.static.flickr.com/1232/755285423_edf4d50bca.jpg', NULL, 'edf4d50bca', 'http://farm2.static.flickr.com/1232/755285423_edf4d50bca_t.jpg', '0')[0m
+  [4;35;1mSQL (84.0ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/application
+Rendering home/photos
+Completed in 60959ms (View: 179, DB: 1003) | 200 OK [http://localhost/home/photos?keyword_name=wedding]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 23:09:42) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"Thei0AyWmVZCqNiG7/C0ujk6dzQ96T4dYLc/eENhtxU=", "selected_photos"=>["20", "22", "24"], "keyword_id"=>"57"}
+  [4;35;1mKeyword Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `keywords`[0m
+  [4;36;1mKeyword Load (0.6ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`id` = 57) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.9ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'wedding' AND `keywords`.id <> 57) LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (29.3ms)[0m   [0;1mSELECT * FROM `keywords` ORDER BY status, keyword_name[0m
+  [4;35;1mScrapPhoto Update (84.8ms)[0m   [0mUPDATE `scrap_photos` SET selected_photo = TRUE WHERE (`scrap_photos`.`id` IN ('20','22','24')) [0m
+  [4;36;1mScrapPhoto Load (8.4ms)[0m   [0;1mSELECT * FROM `scrap_photos` WHERE (`scrap_photos`.`selected_photo` = 1) [0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mScrapPhoto Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `scrap_photos`[0m
+Completed in 338ms (View: 182, DB: 128) | 200 OK [http://localhost/home/index]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 23:09:48) [GET]
+  Parameters: {"page"=>"2"}
+  [4;35;1mKeyword Load (0.4ms)[0m   [0mSELECT * FROM `keywords` ORDER BY status, keyword_name[0m
+  [4;36;1mScrapPhoto Load (0.4ms)[0m   [0;1mSELECT * FROM `scrap_photos` WHERE (`scrap_photos`.`selected_photo` = 1) [0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mKeyword Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `keywords`[0m
+  [4;36;1mScrapPhoto Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `scrap_photos`[0m
+Completed in 78ms (View: 54, DB: 4) | 200 OK [http://localhost/?page=2]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (101.9ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (150.7ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateKeywords (20100819090054)
+  [4;36;1mSQL (117.9ms)[0m   [0;1mCREATE TABLE `keywords` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `keyword_name` varchar(255), `keyword_sanitize` varchar(255), `source` varchar(255), `status` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100819090054')[0m
+Migrating to CreateScrapPhotos (20100819091116)
+  [4;36;1mSQL (141.6ms)[0m   [0;1mCREATE TABLE `scrap_photos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `keyword_id` int(11), `scrap_xml_id` int(11), `title` varchar(255), `url_square` varchar(255), `url_thumbnail` varchar(255), `url_small` varchar(255), `url_medium` varchar(255), `url_large` varchar(255), `url_original` varchar(255), `description` varchar(255), `author` varchar(255), `lisence` varchar(255), `original_id` int(11), `status` int(11), `selected_photo` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100819091116')[0m
+Migrating to CreateScrapXmls (20100819091225)
+  [4;36;1mSQL (104.2ms)[0m   [0;1mCREATE TABLE `scrap_xmls` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `keyword_id` int(11), `xml_file` varchar(255), `status` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100819091225')[0m
+Migrating to AddMissingColumnsToScrapPhotos (20100821124459)
+  [4;36;1mSQL (107.6ms)[0m   [0;1mALTER TABLE `scrap_photos` ADD `secret` varchar(255)[0m
+  [4;35;1mSQL (108.6ms)[0m   [0mALTER TABLE `scrap_photos` ADD `server` varchar(255)[0m
+  [4;36;1mSQL (99.9ms)[0m   [0;1mALTER TABLE `scrap_photos` ADD `latitude` varchar(255)[0m
+  [4;35;1mSQL (100.1ms)[0m   [0mALTER TABLE `scrap_photos` ADD `longitude` varchar(255)[0m
+  [4;36;1mSQL (99.4ms)[0m   [0;1mALTER TABLE `scrap_photos` ADD `accuracy` varchar(255)[0m
+  [4;35;1mSQL (101.1ms)[0m   [0mALTER TABLE `scrap_photos` ADD `place_id` varchar(255)[0m
+  [4;36;1mSQL (108.1ms)[0m   [0;1mALTER TABLE `scrap_photos` ADD `woeid` varchar(255)[0m
+  [4;35;1mSQL (108.3ms)[0m   [0mALTER TABLE `scrap_photos` ADD `farm` varchar(255)[0m
+  [4;36;1mSQL (108.0ms)[0m   [0;1mALTER TABLE `scrap_photos` ADD `is_family` varchar(255)[0m
+  [4;35;1mSQL (108.8ms)[0m   [0mALTER TABLE `scrap_photos` ADD `is_friend` varchar(255)[0m
+  [4;36;1mSQL (108.3ms)[0m   [0;1mALTER TABLE `scrap_photos` ADD `is_public` varchar(255)[0m
+  [4;35;1mSQL (142.7ms)[0m   [0mALTER TABLE `scrap_photos` ADD `tags` varchar(255)[0m
+  [4;36;1mSQL (13.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100821124459')[0m
+Migrating to RenameLisenceToLicenseOnScrapPhotos (20100821124524)
+  [4;35;1mSQL (44.2ms)[0m   [0mSHOW FIELDS FROM `scrap_photos`[0m
+  [4;36;1mSQL (15.6ms)[0m   [0;1mSHOW COLUMNS FROM `scrap_photos` LIKE 'lisence'[0m
+  [4;35;1mSQL (123.6ms)[0m   [0mALTER TABLE `scrap_photos` CHANGE `lisence` `license` varchar(255) DEFAULT NULL[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100821124524')[0m
+  [4;35;1mSQL (11.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `keywords`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mdescribe `keywords`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `keywords`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW FIELDS FROM `scrap_photos`[0m
+  [4;36;1mSQL (6.9ms)[0m   [0;1mdescribe `scrap_photos`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `scrap_photos`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `scrap_xmls`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mdescribe `scrap_xmls`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `scrap_xmls`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` [0m
+  [4;36;1mKeyword Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `keywords`[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'architecture') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.4ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'architecture') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'architecture', '2010-08-23 17:07:39', '2010-08-23 17:07:39', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'art') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'art') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'art', '2010-08-23 17:07:39', '2010-08-23 17:07:39', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'australia') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'australia') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'australia', '2010-08-23 17:07:39', '2010-08-23 17:07:39', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'beach') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'beach') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'beach', '2010-08-23 17:07:39', '2010-08-23 17:07:39', NULL, NULL)[0m
+  [4;36;1mSQL (21.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.5ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'birthday') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'birthday') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'birthday', '2010-08-23 17:07:39', '2010-08-23 17:07:39', NULL, NULL)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'blue') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'blue') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'blue', '2010-08-23 17:07:39', '2010-08-23 17:07:39', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'bw') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'bw') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'bw', '2010-08-23 17:07:39', '2010-08-23 17:07:39', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'california') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'california') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'california', '2010-08-23 17:07:39', '2010-08-23 17:07:39', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'canada') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'canada') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'canada', '2010-08-23 17:07:39', '2010-08-23 17:07:39', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'canon') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'canon') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'canon', '2010-08-23 17:07:39', '2010-08-23 17:07:39', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'china') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'china') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'china', '2010-08-23 17:07:39', '2010-08-23 17:07:39', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'christmas') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'christmas') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'christmas', '2010-08-23 17:07:39', '2010-08-23 17:07:39', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'city') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'city') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'city', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'concert') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'concert') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'concert', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'england') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'england') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'england', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'europe') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'europe') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'europe', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'family') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'family') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'family', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'festival') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'festival') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'festival', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'flower') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'flower') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'flower', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'flowers') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'flowers') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'flowers', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'food') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'food') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'food', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'franch') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'franch') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'franch', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'friends') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'friends') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'friends', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'fun') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'fun') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'fun', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'germany') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'germany') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'germany', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'green') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'green') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'green', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'italy') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'italy') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'italy', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'japan') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'japan') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'japan', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'london') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'london') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'london', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'music') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'music') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'music', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'nature') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'nature') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'nature', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'new') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'new') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'new', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'newyork') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'newyork') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'newyork', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'night') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'night') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'night', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'nikon') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'nikon') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'nikon', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'nyc') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'nyc') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'nyc', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'paris') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.4ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'paris') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'paris', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'park') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'park') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'park', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'party') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'party') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'party', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'people') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'people') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'people', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'portrait') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'portrait') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'portrait', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'red') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'red') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'red', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'sanfrancisco') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'sanfrancisco') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'sanfrancisco', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'sky') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'sky') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'sky', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'snow') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'snow') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'snow', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'spain') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'spain') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'spain', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'spain') LIMIT 1[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'street') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'street') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'street', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'summer') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'summer') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'summer', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'sunset') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'sunset') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'sunset', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'taiwan') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'taiwan') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'taiwan', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'travel') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'travel') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'travel', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'trip') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'trip') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.3ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'trip', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'uk') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'uk') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'uk', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'usa') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'usa') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'usa', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'vacation') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'vacation') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'vacation', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'water') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'water') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'water', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'wedding') LIMIT 1[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'wedding') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'wedding', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'white') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'white') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'white', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'winter') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'winter') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'winter', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_1') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_1') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_1', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_2') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_2') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_2', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.4ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_3') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_3') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_3', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_4') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_4') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_4', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_5') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_5') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_5', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_6') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_6') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_6', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_7') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_7') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_7', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_8') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_8') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_8', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_9') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_9') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_9', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_10') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_10') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_10', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_11') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_11') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_11', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_12') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_12') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_12', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_13') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_13') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_13', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_14') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_14') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_14', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_15') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_15') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_15', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_16') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_16') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_16', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_17') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_17') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_17', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_18') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_18') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_18', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_19') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_19') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_19', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_20') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_20') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_20', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_21') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_21') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_21', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_22') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_22') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_22', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_23') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_23') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_23', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_24') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_24') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_24', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_25') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_25') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_25', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_26') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_26') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_26', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_27') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_27') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_27', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_28') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_28') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_28', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.4ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_29') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_29') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_29', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_30') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_30') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_30', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_31') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_31') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_31', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_32') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.6ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_32') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_32', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_33') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_33') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_33', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_34') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_34') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_34', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_35') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_35') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_35', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_36') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_36') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_36', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.4ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_37') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_37') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_37', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_38') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_38') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_38', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_39') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_39') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_39', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_40') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_40') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_40', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_41') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.6ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_41') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_41', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_42') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_42') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_42', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_43') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_43') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_43', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_44') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_44') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_44', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_45') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_45') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_45', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.4ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_46') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_46') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_46', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_47') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_47') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_47', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_48') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_48') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_48', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_49') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_49') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_49', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_50') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_50') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.3ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_50', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.4ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_51') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_51') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_51', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_52') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_52') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_52', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_53') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_53') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_53', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_54') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_54') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_54', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.6ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_55') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_55') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_55', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_56') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_56') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_56', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_57') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_57') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_57', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_58') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_58') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_58', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_59') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_59') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.3ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_59', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.4ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_60') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_60') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_60', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_61') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_61') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_61', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.4ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_62') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_62') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_62', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_63') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_63') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_63', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_64') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.4ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_64') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_64', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.4ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_65') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_65') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_65', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_66') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_66') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_66', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.4ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_67') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_67') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_67', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_68') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_68') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.3ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_68', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.4ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_69') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_69') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_69', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_70') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_70') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_70', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.4ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_71') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_71') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_71', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_72') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_72') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_72', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.4ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_73') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_73') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_73', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.4ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_74') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_74') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.3ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_74', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.4ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_75') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_75') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_75', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.4ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_76') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_76') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_76', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_77') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_77') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.3ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_77', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.4ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_78') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_78') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_78', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.4ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_79') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.4ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_79') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_79', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.4ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_80') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_80') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_80', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.4ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_81') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_81') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_81', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.4ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_82') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_82') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_82', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.4ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_83') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_83') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_83', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.4ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_84') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_84') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_84', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.4ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_85') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_85') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_85', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.4ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_86') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_86') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_86', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.4ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_87') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_87') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_87', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.4ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_88') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.4ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_88') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_88', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.4ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_89') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_89') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_89', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.4ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_90') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_90') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_90', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.4ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_91') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_91') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_91', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.4ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_92') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_92') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.6ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_92', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.4ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_93') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_93') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_93', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.4ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_94') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_94') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_94', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.4ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_95') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_95') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_95', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.4ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_96') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_96') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_96', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.5ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_97') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_97') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_97', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.4ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_98') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_98') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_98', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mKeyword Load (0.4ms)[0m   [0mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_99') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mKeyword Load (0.3ms)[0m   [0mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_99') LIMIT 1[0m
+  [4;36;1mKeyword Create (0.2ms)[0m   [0;1mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_99', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (0.4ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'keyword_100') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'keyword_100') LIMIT 1[0m
+  [4;35;1mKeyword Create (0.2ms)[0m   [0mINSERT INTO `keywords` (`keyword_sanitize`, `keyword_name`, `created_at`, `updated_at`, `source`, `status`) VALUES(NULL, 'keyword_100', '2010-08-23 17:07:40', '2010-08-23 17:07:40', NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 10:08:20) [GET]
+  [4;35;1mKeyword Load (7.2ms)[0m   [0mSELECT * FROM `keywords` ORDER BY status, keyword_name[0m
+  [4;36;1mScrapPhoto Load (0.5ms)[0m   [0;1mSELECT * FROM `scrap_photos` WHERE (`scrap_photos`.`selected_photo` = 1) [0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mKeyword Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `keywords`[0m
+Completed in 97ms (View: 66, DB: 9) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#photos (for 127.0.0.1 at 2010-08-23 10:08:28) [GET]
+  Parameters: {"keyword_name"=>"architecture"}
+  [4;35;1mKeyword Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `keywords`[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'architecture') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.5ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'architecture' AND `keywords`.id <> 1) LIMIT 1[0m
+  [4;35;1mKeyword Update (0.4ms)[0m   [0mUPDATE `keywords` SET `updated_at` = '2010-08-23 17:08:28', `status` = 'Done' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mScrapXml Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `scrap_xmls`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mScrapXml Create (0.2ms)[0m   [0mINSERT INTO `scrap_xmls` (`created_at`, `updated_at`, `keyword_id`, `xml_file`, `status`) VALUES('2010-08-23 17:08:28', '2010-08-23 17:08:28', 1, NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mScrapXml Update (0.4ms)[0m   [0;1mUPDATE `scrap_xmls` SET `updated_at` = '2010-08-23 17:08:28', `status` = 1 WHERE `id` = 1[0m
+  [4;35;1mSQL (20.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mScrapXml Update (0.3ms)[0m   [0mUPDATE `scrap_xmls` SET `updated_at` = '2010-08-23 17:08:28', `status` = 2 WHERE `id` = 1[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mScrapPhoto Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `scrap_photos`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mScrapPhoto Create (0.4ms)[0m   [0mINSERT INTO `scrap_photos` (`url_large`, `original_id`, `url_small`, `created_at`, `latitude`, `place_id`, `woeid`, `title`, `author`, `farm`, `url_original`, `license`, `updated_at`, `accuracy`, `url_square`, `selected_photo`, `server`, `tags`, `is_family`, `keyword_id`, `scrap_xml_id`, `description`, `longitude`, `is_public`, `url_medium`, `status`, `secret`, `url_thumbnail`, `is_friend`) VALUES('http://farm3.static.flickr.com/2486/3842309804_1b139f04c2_b.jpg', 3842309804, 'http://farm3.static.flickr.com/2486/3842309804_1b139f04c2_m.jpg', '2010-08-23 17:08:29', NULL, NULL, NULL, 'Marsa Alam beach', 'Andrea Costa Photography', '3', 'http://farm3.static.flickr.com/2486/3842309804_508e793e8b_o.jpg', 6, '2010-08-23 17:08:29', NULL, 'http://farm3.static.flickr.com/2486/3842309804_1b139f04c2_s.jpg', NULL, '2486', 'desktop sea wallpaper holiday macro building tree art beach nature water closeup architecture illustration photoshop canon painting creativity photography hotel design interesting paint arte post graphic background postcard creative myspace powershot comunicazione explore concept retouch ideas retouching disegno sx1 grafica facebook linkedin interessi comunication photorealistic postprocessing fotoritocco windflower bestphoto photoretouching illustrazione metadesign fotorealismo ritocco netlog andreacosta alpitour grouptripod artofimages sx1is sx1best actheart bestcapturesaoi yourwonderland socialimg choisephotos fantaziaresort elitegalleryaoi mygearandmepremium mygearandmebronze mygearandmesilver mygearandmegold mygearandmeplatinum', '0', 1, 1, 'EXPLORE: Aug 22, 2009 #8\n\n<strong>Info photo: Fantazia Resort Marsa Alam\n\nRetouching and paint: NO\nPostprocessing RAW: saturation and levels\n\nThanks to Aelin for your Blog:\n<a href=\"http://www.flickr.com/photos/aelinquan/4026015992/\">www.flickr.com/photos/aelinquan/4026015992/</a>\n---\nThanks for:\nTriple Nice Shot \nHOMEPAGE\n<a href=\"http://www.flickr.com/groups/1224885@N24/\">www.flickr.com/groups/1224885@N24/</a>\n---\n---\nThanks for:\nS♥per ♥ Hearts\nFRONT PAGE GALLERY\n<a href=\"http://www.flickr.com/groups/superhearts/discuss/72157622308333215/\">www.flickr.com/groups/superhearts/discuss/72157622308333215/</a>\n---\n</strong>\n\nMarsa Alam (o Marsà ‘Alam, in arabo مرسى علم) è stato fino a pochi anni fa un piccolo villaggio di pescatori situato in Egitto, sulla costa ovest del Mar Rosso.\nNegli ultimi anni, a seguito dell\'apertura dell\'aeroporto internazionale (codice ICAO: HEMA, codice IATA: RMF) nel 2001, è cresciuto rapidamente fino a divenire una popolare destinazione turistica, come lo sono già Sharm el Sheikh e Hurghada.\nMarsa Alam è situata in prossimità del Tropico del Cancro, dove il Mar Rosso incontra il deserto del Sahara, e si presenta ricca di palmeti e mangrovie, con un mare ricco di pesce per via della presenza della barriera corallina. Quest\'ultima è molto rinomata tra i subacquei per via dei molti siti d\'immersione ancora incontaminati, in cui si possono incontrare facilmente delfini (del genere stenella rostrata), dugongo e squali martello.\n\n---\n\nMarsa Alam (Arabic: مرسى علم‎) is a town in south-eastern Egypt, on the west coast of the Red Sea. It is currently seeing increasing popularity as a tourist destination and development including the opening of Marsa Alam Airport in 2001.\nMarsa Alam is situated near the Tropic of Cancer where the Arabian Desert meets the Red Sea, and it has the appearance of a tropical paradise with its palm trees, mangroves and sea coasts fringed with barrier coral reefs. It has already gained a strong reputation amongst scuba divers due to its numerous and unspoilt diving sites both along the coast and offshore. Sightings of spinner dolphins, dugongs and hammerhead sharks are a frequent occurrence for those who venture into its waters.\n\nAndrea Costa Photography - Please don\'t use this image on websites, blogs or other media without my explicit permission. © All rights reserved\nTWITTER: <a href=\"http://twitter.com/AC_TheArt\" rel=\"nofollow\">twitter.com/AC_TheArt</a>', NULL, '1', 'http://farm3.static.flickr.com/2486/3842309804_1b139f04c2.jpg', NULL, '1b139f04c2', 'http://farm3.static.flickr.com/2486/3842309804_1b139f04c2_t.jpg', '0')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mScrapPhoto Create (0.4ms)[0m   [0;1mINSERT INTO `scrap_photos` (`url_large`, `original_id`, `url_small`, `created_at`, `latitude`, `place_id`, `woeid`, `title`, `author`, `farm`, `url_original`, `license`, `updated_at`, `accuracy`, `url_square`, `selected_photo`, `server`, `tags`, `is_family`, `keyword_id`, `scrap_xml_id`, `description`, `longitude`, `is_public`, `url_medium`, `status`, `secret`, `url_thumbnail`, `is_friend`) VALUES('http://farm3.static.flickr.com/2528/3842310134_b1913aa4ae_b.jpg', 3842310134, 'http://farm3.static.flickr.com/2528/3842310134_b1913aa4ae_m.jpg', '2010-08-23 17:08:30', NULL, NULL, NULL, 'Marsa Alam nocturne', 'Andrea Costa Photography', '3', 'http://farm3.static.flickr.com/2528/3842310134_7d23777a16_o.jpg', 6, '2010-08-23 17:08:30', NULL, 'http://farm3.static.flickr.com/2528/3842310134_b1913aa4ae_s.jpg', NULL, '2528', 'desktop sea wallpaper holiday macro building tree art beach nature water closeup architecture illustration photoshop canon painting creativity photography hotel design interesting paint arte post graphic background postcard creative myspace powershot comunicazione explore concept retouch ideas retouching disegno sx1 grafica facebook linkedin interessi comunication photorealistic postprocessing fotoritocco windflower bestphoto photoretouching illustrazione metadesign fotorealismo ritocco netlog platinumheartaward andreacosta alpitour artofimages sx1is sx1best actheart bestcapturesaoi coth5 socialimg fantaziaresort mygearandmepremium mygearandmebronze mygearandmesilver mygearandmegold mygearandmeplatinum', '0', 1, 1, '<strong> \nExample for enfatize image, correction and retouching at:\n<a href=\"http://www.facebook.com/pages/Andrea-Costa-Photography/129702643721004?ref=sgm\" rel=\"nofollow\">Andrea Costa Photography</a></strong>\n\n<strong>Info photo: St. Vitus Cathedral\n\nRetouching and paint: Paint cloud and retouching colours\nPostprocessing RAW: Virance and levels\n--\nThanks for:\nA Fool\'s Taj Mahal\nHOME PAGE - IMAGE OF THE MOUNTH\n<a href=\"http://www.flickr.com/groups/werbistdu/\">www.flickr.com/groups/werbistdu/</a>\n--\nThanks for:\nFLICKR WALKABOUT WITH BILL CROSS\nHOME PAGE - BLOG\n<a href=\"http://flickrwalkabout.blogspot.com/\" rel=\"nofollow\">flickrwalkabout.blogspot.com/</a>\n--\nThanks for:\n✣ Sin City ✣\nHOME PAGE - IMAGE OF THE MOUNTH\n<a href=\"http://www.flickr.com/groups/sin_city/\">www.flickr.com/groups/sin_city/</a>\n--\nThanks for:\nReserva Especial\nHOME PAGE - IMAGE OF THE MOUNTH\n<a href=\"http://www.flickr.com/groups/special_reserve/\">www.flickr.com/groups/special_reserve/</a>\n---\nThanks for:\nSplendid Pictures\nPHOTO OF THE WEEK\n<a href=\"http://www.flickr.com/groups/1074549@N20/discuss/72157622470712716/\">www.flickr.com/groups/1074549@N20/discuss/72157622470712716/</a>\n---\nThanks for:\nMagia y fotografía...\nHOME PAGE - IMAGE OF THE MOUNTH\n<a href=\"http://www.flickr.com/groups/magiayfotografia/\">www.flickr.com/groups/magiayfotografia/</a>\n---\nThanks for:\nHOMEPAGE\nThe PARAGON Gallery - Artistic Expression \n<a href=\"http://www.flickr.com/groups/the_paragon_gallery/\">www.flickr.com/groups/the_paragon_gallery/</a>\n</strong>---\n\n\nMarsa Alam (o Marsà ‘Alam, in arabo مرسى علم) è stato fino a pochi anni fa un piccolo villaggio di pescatori situato in Egitto, sulla costa ovest del Mar Rosso.\nNegli ultimi anni, a seguito dell\'apertura dell\'aeroporto internazionale (codice ICAO: HEMA, codice IATA: RMF) nel 2001, è cresciuto rapidamente fino a divenire una popolare destinazione turistica, come lo sono già Sharm el Sheikh e Hurghada.\nMarsa Alam è situata in prossimità del Tropico del Cancro, dove il Mar Rosso incontra il deserto del Sahara, e si presenta ricca di palmeti e mangrovie, con un mare ricco di pesce per via della presenza della barriera corallina. Quest\'ultima è molto rinomata tra i subacquei per via dei molti siti d\'immersione ancora incontaminati, in cui si possono incontrare facilmente delfini (del genere stenella rostrata), dugongo e squali martello.\n\n---\n\nMarsa Alam (Arabic: مرسى علم‎) is a town in south-eastern Egypt, on the west coast of the Red Sea. It is currently seeing increasing popularity as a tourist destination and development including the opening of Marsa Alam Airport in 2001.\nMarsa Alam is situated near the Tropic of Cancer where the Arabian Desert meets the Red Sea, and it has the appearance of a tropical paradise with its palm trees, mangroves and sea coasts fringed with barrier coral reefs. It has already gained a strong reputation amongst scuba divers due to its numerous and unspoilt diving sites both along the coast and offshore. Sightings of spinner dolphins, dugongs and hammerhead sharks are a frequent occurrence for those who venture into its waters.\n\nAndrea Costa Photography - Please don\'t use this image on websites, blogs or other media without my explicit permission. © All rights reserved\nTWITTER: <a href=\"http://twitter.com/AC_TheArt\" rel=\"nofollow\">twitter.com/AC_TheArt</a>', NULL, '1', 'http://farm3.static.flickr.com/2528/3842310134_b1913aa4ae.jpg', NULL, 'b1913aa4ae', 'http://farm3.static.flickr.com/2528/3842310134_b1913aa4ae_t.jpg', '0')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mScrapPhoto Create (0.4ms)[0m   [0mINSERT INTO `scrap_photos` (`url_large`, `original_id`, `url_small`, `created_at`, `latitude`, `place_id`, `woeid`, `title`, `author`, `farm`, `url_original`, `license`, `updated_at`, `accuracy`, `url_square`, `selected_photo`, `server`, `tags`, `is_family`, `keyword_id`, `scrap_xml_id`, `description`, `longitude`, `is_public`, `url_medium`, `status`, `secret`, `url_thumbnail`, `is_friend`) VALUES('http://farm4.static.flickr.com/3262/2591933295_d54c348c5b_b.jpg', 2591933295, 'http://farm4.static.flickr.com/3262/2591933295_d54c348c5b_m.jpg', '2010-08-23 17:08:30', NULL, NULL, NULL, 'well', 'telmo32', '4', 'http://farm4.static.flickr.com/3262/2591933295_cfd4c19a4e_o.jpg', 6, '2010-08-23 17:08:30', NULL, 'http://farm4.static.flickr.com/3262/2591933295_d54c348c5b_s.jpg', NULL, '3262', 'sf sanfrancisco california city urban architecture stairs buildings contemporary creativecommons bayarea escaleras embarcaderocenter awesomeshot blueribbonwinner linesandcurves supershot outstandingshots flickrsbest sfchronicle96hrs ultimateshot theperfectphotographer goldstaraward thebestpicturegallery flickrlovers telmo32', '0', 1, 1, '<a href=\"http://bighugelabs.com/flickr/onblack.php?id=2591933295\" rel=\"nofollow\">View On Black</a>\n\nEmbarcadero Center San Francisco\n\n\n<a href=\"http://digital-photography-school.com/architectural-photography\" rel=\"nofollow\">digital-photography-school.com/architectural-photography</a>', NULL, '1', 'http://farm4.static.flickr.com/3262/2591933295_d54c348c5b.jpg', NULL, 'd54c348c5b', 'http://farm4.static.flickr.com/3262/2591933295_d54c348c5b_t.jpg', '0')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mScrapPhoto Create (0.4ms)[0m   [0;1mINSERT INTO `scrap_photos` (`url_large`, `original_id`, `url_small`, `created_at`, `latitude`, `place_id`, `woeid`, `title`, `author`, `farm`, `url_original`, `license`, `updated_at`, `accuracy`, `url_square`, `selected_photo`, `server`, `tags`, `is_family`, `keyword_id`, `scrap_xml_id`, `description`, `longitude`, `is_public`, `url_medium`, `status`, `secret`, `url_thumbnail`, `is_friend`) VALUES('http://farm3.static.flickr.com/2023/2186186223_dcbbe4f5c6_b.jpg', 2186186223, 'http://farm3.static.flickr.com/2023/2186186223_dcbbe4f5c6_m.jpg', '2010-08-23 17:08:31', NULL, NULL, NULL, 'Under the Needle--Approaching 6K views', 'papalars', '3', 'http://farm3.static.flickr.com/2023/2186186223_2d44aafaa9_o.jpg', 6, '2010-08-23 17:08:31', NULL, 'http://farm3.static.flickr.com/2023/2186186223_dcbbe4f5c6_s.jpg', NULL, '2023', 'seattle blue red sky reflection architecture modern frank washington gehry best spaceneedle experiencemusicproject emp digitalrebelxt papalars a3b andrewelarsen', '0', 1, 1, 'This is the Experience Music Project building in the Seattle Center, under the Space Needle in Seattle, Washington. I stitched 2 photos together and also combined 3 photos of each stitched photo into an HDR. So, I guess the total is 6 shots get this one. The dusk light provided a nice reflection of the Needle on the side of the EMP.\n\nThe Experience Music Project (EMP) is a museum of music history founded by Paul Allen, the co-founder of Microsoft, located on the campus of Seattle, Washington\'s Seattle Center. It is sited near the Space Needle and is by one of the two stops on the Seattle Center Monorail, which runs through the building.\n\nThe structure itself was designed by Frank Gehry, and resembles many of his firm\'s other works in its sheet-metal construction, such as Guggenheim Museum Bilbao, Walt Disney Concert Hall and Gehry Tower. Much of the building material is exposed in the building\'s interior. The central &quot;Sky Church&quot; room pays homage to Jimi Hendrix and other rock \'n\' roll icons using a 40 foot high, 70 foot wide video screen and an 18-panel montage of images. The last structural steel beam to be put in place bears the signatures of all construction workers who were on site on the day it was erected. Hoffman Construction Company of Portland, Oregon was the general contractor.', NULL, '1', 'http://farm3.static.flickr.com/2023/2186186223_dcbbe4f5c6.jpg', NULL, 'dcbbe4f5c6', 'http://farm3.static.flickr.com/2023/2186186223_dcbbe4f5c6_t.jpg', '0')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mScrapPhoto Create (0.4ms)[0m   [0mINSERT INTO `scrap_photos` (`url_large`, `original_id`, `url_small`, `created_at`, `latitude`, `place_id`, `woeid`, `title`, `author`, `farm`, `url_original`, `license`, `updated_at`, `accuracy`, `url_square`, `selected_photo`, `server`, `tags`, `is_family`, `keyword_id`, `scrap_xml_id`, `description`, `longitude`, `is_public`, `url_medium`, `status`, `secret`, `url_thumbnail`, `is_friend`) VALUES('http://farm3.static.flickr.com/2273/2187966935_50fc2c16ac_b.jpg', 2187966935, 'http://farm3.static.flickr.com/2273/2187966935_50fc2c16ac_m.jpg', '2010-08-23 17:08:35', NULL, NULL, NULL, 'Waves', 'papalars', '3', 'http://farm3.static.flickr.com/2273/2187966935_3ab0eeed8e_o.jpg', 6, '2010-08-23 17:08:35', NULL, 'http://farm3.static.flickr.com/2273/2187966935_50fc2c16ac_s.jpg', NULL, '2273', 'seattle blue wild architecture modern frank gold washington colorful gehry best spaceneedle experiencemusicproject emp digitalrebelxt pritzker supershot instantfav diamondclassphotographer flickrdiamond papalars a3b coloursplosion andrewelarsen', '0', 1, 1, 'This is the Experience Music Project building in the Seattle Center, under the Space Needle in Seattle, Washington. This is an HDR composite of 3 shots.\n\nThe Experience Music Project (EMP) is a museum of music history founded by Paul Allen, the co-founder of Microsoft, located on the campus of Seattle, Washington\'s Seattle Center. It is sited near the Space Needle and is by one of the two stops on the Seattle Center Monorail, which runs through the building.\n\nThe structure itself was designed by Frank Gehry, and resembles many of his firm\'s other works in its sheet-metal construction, such as Guggenheim Museum Bilbao, Walt Disney Concert Hall and Gehry Tower. Much of the building material is exposed in the building\'s interior. The central &quot;Sky Church&quot; room pays homage to Jimi Hendrix and other rock \'n\' roll icons using a 40 foot high, 70 foot wide video screen and an 18-panel montage of images. The last structural steel beam to be put in place bears the signatures of all construction workers who were on site on the day it was erected. Hoffman Construction Company of Portland, Oregon was the general contractor.', NULL, '1', 'http://farm3.static.flickr.com/2273/2187966935_50fc2c16ac.jpg', NULL, '50fc2c16ac', 'http://farm3.static.flickr.com/2273/2187966935_50fc2c16ac_t.jpg', '0')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mScrapPhoto Create (0.4ms)[0m   [0;1mINSERT INTO `scrap_photos` (`url_large`, `original_id`, `url_small`, `created_at`, `latitude`, `place_id`, `woeid`, `title`, `author`, `farm`, `url_original`, `license`, `updated_at`, `accuracy`, `url_square`, `selected_photo`, `server`, `tags`, `is_family`, `keyword_id`, `scrap_xml_id`, `description`, `longitude`, `is_public`, `url_medium`, `status`, `secret`, `url_thumbnail`, `is_friend`) VALUES('http://farm3.static.flickr.com/2327/2166515594_eae56a8815_b.jpg', 2166515594, 'http://farm3.static.flickr.com/2327/2166515594_eae56a8815_m.jpg', '2010-08-23 17:08:35', NULL, NULL, NULL, 'library', 'telmo32', '3', 'http://farm3.static.flickr.com/2327/2166515594_3d5072c19a_o.jpg', 6, '2010-08-23 17:08:35', NULL, 'http://farm3.static.flickr.com/2327/2166515594_eae56a8815_s.jpg', NULL, '2327', 'sf sanfrancisco california city urban bw architecture buildings contemporary library perspective optical creativecommons bayarea soe civiccenter blueribbonwinner golddragon sanfranciscomainlibrary abigfave jamesingofreed superbmasterpiece diamondclassphotographer excellentphotographerawards theperfectphotographer telmo32', '0', 1, 1, '<a href=\"http://bighugelabs.com/flickr/onblack.php?id=2166515594&amp;size=large\">View On Black</a>\n\nSan Francisco Main Library\n\nJames Ingo Freed 1996', NULL, '1', 'http://farm3.static.flickr.com/2327/2166515594_eae56a8815.jpg', NULL, 'eae56a8815', 'http://farm3.static.flickr.com/2327/2166515594_eae56a8815_t.jpg', '0')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/application
+Rendering home/photos
+Completed in 7555ms (View: 36, DB: 35) | 200 OK [http://localhost/home/photos?keyword_name=architecture]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 10:11:30) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"FkybGhdCxFw0R1xBBll38cpmiTxtQMm0kDDjJvmTLLo=", "selected_photos"=>["2", "3"], "keyword_id"=>"1"}
+  [4;35;1mKeyword Columns (36.6ms)[0m   [0mSHOW FIELDS FROM `keywords`[0m
+  [4;36;1mKeyword Load (0.4ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`id` = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.5ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'architecture' AND `keywords`.id <> 1) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mKeyword Load (4.7ms)[0m   [0;1mSELECT * FROM `keywords` ORDER BY status, keyword_name[0m
+  [4;35;1mScrapPhoto Update (49.3ms)[0m   [0mUPDATE `scrap_photos` SET selected_photo = TRUE WHERE (`scrap_photos`.`id` IN ('2','3')) [0m
+  [4;36;1mScrapPhoto Load (0.5ms)[0m   [0;1mSELECT * FROM `scrap_photos` WHERE (`scrap_photos`.`selected_photo` = 1) [0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mScrapPhoto Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `scrap_photos`[0m
+Completed in 141ms (View: 30, DB: 94) | 200 OK [http://localhost/home/index]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 10:11:35) [GET]
+  Parameters: {"page"=>"2"}
+  [4;35;1mKeyword Load (2.4ms)[0m   [0mSELECT * FROM `keywords` ORDER BY status, keyword_name[0m
+  [4;36;1mScrapPhoto Load (0.5ms)[0m   [0;1mSELECT * FROM `scrap_photos` WHERE (`scrap_photos`.`selected_photo` = 1) [0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mKeyword Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `keywords`[0m
+  [4;36;1mScrapPhoto Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `scrap_photos`[0m
+Completed in 109ms (View: 22, DB: 6) | 200 OK [http://localhost/?page=2]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 10:11:39) [GET]
+  Parameters: {"page"=>"1"}
+  [4;36;1mKeyword Load (2.5ms)[0m   [0;1mSELECT * FROM `keywords` ORDER BY status, keyword_name[0m
+  [4;35;1mScrapPhoto Load (0.5ms)[0m   [0mSELECT * FROM `scrap_photos` WHERE (`scrap_photos`.`selected_photo` = 1) [0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;36;1mKeyword Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `keywords`[0m
+  [4;35;1mScrapPhoto Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `scrap_photos`[0m
+Completed in 47ms (View: 32, DB: 6) | 200 OK [http://localhost/?page=1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#photos (for 127.0.0.1 at 2010-08-23 10:17:11) [GET]
+  Parameters: {"keyword_name"=>"beach"}
+  [4;35;1mKeyword Columns (15.8ms)[0m   [0mSHOW FIELDS FROM `keywords`[0m
+  [4;36;1mKeyword Load (0.3ms)[0m   [0;1mSELECT * FROM `keywords` WHERE (`keywords`.`keyword_name` = 'beach') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mKeyword Load (0.4ms)[0m   [0;1mSELECT `keywords`.id FROM `keywords` WHERE (`keywords`.`keyword_name` = BINARY 'beach' AND `keywords`.id <> 4) LIMIT 1[0m
+  [4;35;1mKeyword Update (0.2ms)[0m   [0mUPDATE `keywords` SET `updated_at` = '2010-08-23 17:17:11', `status` = 'Done' WHERE `id` = 4[0m
+  [4;36;1mSQL (52.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mScrapXml Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `scrap_xmls`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mScrapXml Create (0.3ms)[0m   [0mINSERT INTO `scrap_xmls` (`created_at`, `updated_at`, `keyword_id`, `xml_file`, `status`) VALUES('2010-08-23 17:17:11', '2010-08-23 17:17:11', 4, NULL, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mScrapXml Update (0.3ms)[0m   [0;1mUPDATE `scrap_xmls` SET `updated_at` = '2010-08-23 17:17:11', `status` = 1 WHERE `id` = 2[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mScrapXml Update (0.3ms)[0m   [0mUPDATE `scrap_xmls` SET `updated_at` = '2010-08-23 17:17:12', `status` = 2 WHERE `id` = 2[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mScrapPhoto Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `scrap_photos`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mScrapPhoto Create (0.4ms)[0m   [0mINSERT INTO `scrap_photos` (`url_large`, `original_id`, `url_small`, `created_at`, `latitude`, `place_id`, `woeid`, `title`, `author`, `farm`, `url_original`, `license`, `updated_at`, `accuracy`, `url_square`, `selected_photo`, `server`, `tags`, `is_family`, `keyword_id`, `scrap_xml_id`, `description`, `longitude`, `is_public`, `url_medium`, `status`, `secret`, `url_thumbnail`, `is_friend`) VALUES('http://farm3.static.flickr.com/2797/4175214747_166c68eaf0_b.jpg', 4175214747, 'http://farm3.static.flickr.com/2797/4175214747_166c68eaf0_m.jpg', '2010-08-23 17:17:13', NULL, NULL, NULL, 'Golden Gate in San Francisco, California', 'Alain Picard', '3', 'http://farm3.static.flickr.com/2797/4175214747_f56502016b_o.jpg', 6, '2010-08-23 17:17:13', NULL, 'http://farm3.static.flickr.com/2797/4175214747_166c68eaf0_s.jpg', NULL, '2797', 'sanfrancisco california city travel bridge sea vacation urban usa beach colors architecture canon pond flickr baker pacific united goldengate bayarea sanfran alcatraz states therocks plage presidio ville beautifull nationalgeographic californie musictomyeyes mywinners supershots platinumphoto flickraward goldstarawards', '0', 4, 2, 'The Golden Gate in San Francisco from Baker Beach.\nWebSite: <a href=\"http://www.alainpicard.us\" rel=\"nofollow\">www.alainpicard.us</a>\nFlickr Group: <a href=\"http://www.flickr.com/groups/istockphoto-rejected/\">iStockphoto Rejected</a>', NULL, '1', 'http://farm3.static.flickr.com/2797/4175214747_166c68eaf0.jpg', NULL, '166c68eaf0', 'http://farm3.static.flickr.com/2797/4175214747_166c68eaf0_t.jpg', '0')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mScrapPhoto Create (0.4ms)[0m   [0;1mINSERT INTO `scrap_photos` (`url_large`, `original_id`, `url_small`, `created_at`, `latitude`, `place_id`, `woeid`, `title`, `author`, `farm`, `url_original`, `license`, `updated_at`, `accuracy`, `url_square`, `selected_photo`, `server`, `tags`, `is_family`, `keyword_id`, `scrap_xml_id`, `description`, `longitude`, `is_public`, `url_medium`, `status`, `secret`, `url_thumbnail`, `is_friend`) VALUES('http://farm4.static.flickr.com/3193/3009451738_6d4c9e4fcc_b.jpg', 3009451738, 'http://farm4.static.flickr.com/3193/3009451738_6d4c9e4fcc_m.jpg', '2010-08-23 17:17:13', NULL, NULL, NULL, 'beach', 'telmo32', '4', 'http://farm4.static.flickr.com/3193/3009451738_6966ccfb54_o.jpg', 6, '2010-08-23 17:17:13', NULL, 'http://farm4.static.flickr.com/3193/3009451738_6d4c9e4fcc_s.jpg', NULL, '3193', 'ocean sf sanfrancisco california blackandwhite bw beach monochrome surf explore creativecommons bayarea oceanbeach sigma30mm14 nikond300 oraclex reflectyourworld telmo32', '0', 4, 2, '<a href=\"http://bighugelabs.com/flickr/onblack.php?id=3009451738&amp;size=large\" rel=\"nofollow\">View On Black</a>\n\n\nOcean Beach San Francisco\n<a href=\"http://www.flickr.com/photos/telmo32/sets/72157602920543114/\">Explore</a>', NULL, '1', 'http://farm4.static.flickr.com/3193/3009451738_6d4c9e4fcc.jpg', NULL, '6d4c9e4fcc', 'http://farm4.static.flickr.com/3193/3009451738_6d4c9e4fcc_t.jpg', '0')[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mScrapPhoto Create (0.4ms)[0m   [0mINSERT INTO `scrap_photos` (`url_large`, `original_id`, `url_small`, `created_at`, `latitude`, `place_id`, `woeid`, `title`, `author`, `farm`, `url_original`, `license`, `updated_at`, `accuracy`, `url_square`, `selected_photo`, `server`, `tags`, `is_family`, `keyword_id`, `scrap_xml_id`, `description`, `longitude`, `is_public`, `url_medium`, `status`, `secret`, `url_thumbnail`, `is_friend`) VALUES('http://farm4.static.flickr.com/3046/3042863765_790346f83f_b.jpg', 3042863765, 'http://farm4.static.flickr.com/3046/3042863765_790346f83f_m.jpg', '2010-08-23 17:17:14', NULL, NULL, NULL, 'oceanbeach', 'telmo32', '4', 'http://farm4.static.flickr.com/3046/3042863765_ea1e86a3c0_o.jpg', 6, '2010-08-23 17:17:14', NULL, 'http://farm4.static.flickr.com/3046/3042863765_790346f83f_s.jpg', NULL, '3046', 'ocean sf sanfrancisco california blackandwhite bw beach monochrome coast surf explore creativecommons bayarea oceanbeach artcafe blueribbonwinner sigma30mm14 nikond300 damniwishidtakenthat ysplixblack telmo32', '0', 4, 2, '<a href=\"http://bighugelabs.com/flickr/onblack.php?id=3042863765&amp;size=large\" rel=\"nofollow\">View On Black</a>\n\nOcean Beach San Francisco\n<a href=\"http://www.flickr.com/photos/telmo32/sets/72157602920543114/\">Explore</a>', NULL, '1', 'http://farm4.static.flickr.com/3046/3042863765_790346f83f.jpg', NULL, '790346f83f', 'http://farm4.static.flickr.com/3046/3042863765_790346f83f_t.jpg', '0')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mScrapPhoto Create (0.3ms)[0m   [0;1mINSERT INTO `scrap_photos` (`url_large`, `original_id`, `url_small`, `created_at`, `latitude`, `place_id`, `woeid`, `title`, `author`, `farm`, `url_original`, `license`, `updated_at`, `accuracy`, `url_square`, `selected_photo`, `server`, `tags`, `is_family`, `keyword_id`, `scrap_xml_id`, `description`, `longitude`, `is_public`, `url_medium`, `status`, `secret`, `url_thumbnail`, `is_friend`) VALUES('http://farm4.static.flickr.com/3384/3436765822_8cef16e373_b.jpg', 3436765822, 'http://farm4.static.flickr.com/3384/3436765822_8cef16e373_m.jpg', '2010-08-23 17:17:14', NULL, NULL, NULL, 'baker beach', 'telmo32', '4', 'http://farm4.static.flickr.com/3384/3436765822_ec09beb0e6_o.jpg', 6, '2010-08-23 17:17:14', NULL, 'http://farm4.static.flickr.com/3384/3436765822_8cef16e373_s.jpg', NULL, '3384', 'sf sanfrancisco california city blackandwhite bw beach monochrome sandstone rocks monotone explore creativecommons bayarea geology bakerbeach presidio sfbay ggnra sigma1020mm goldengatenationalrecreationarea franciscanformation theunforgettablepictures nikond300 telmo32 turbiditydeposits turbiditycurrentdeposit', '0', 4, 2, '<a href=\"http://bighugelabs.com/flickr/onblack.php?id=3436765822&amp;size=large\" rel=\"nofollow\">View On Black</a>\n<a href=\"http://www.flickr.com/photos/telmo32/sets/72157602920543114/\">Explore</a>', NULL, '1', 'http://farm4.static.flickr.com/3384/3436765822_8cef16e373.jpg', NULL, '8cef16e373', 'http://farm4.static.flickr.com/3384/3436765822_8cef16e373_t.jpg', '0')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mScrapPhoto Create (0.4ms)[0m   [0mINSERT INTO `scrap_photos` (`url_large`, `original_id`, `url_small`, `created_at`, `latitude`, `place_id`, `woeid`, `title`, `author`, `farm`, `url_original`, `license`, `updated_at`, `accuracy`, `url_square`, `selected_photo`, `server`, `tags`, `is_family`, `keyword_id`, `scrap_xml_id`, `description`, `longitude`, `is_public`, `url_medium`, `status`, `secret`, `url_thumbnail`, `is_friend`) VALUES('http://farm5.static.flickr.com/4048/4181731322_62c2c5642c_b.jpg', 4181731322, 'http://farm5.static.flickr.com/4048/4181731322_62c2c5642c_m.jpg', '2010-08-23 17:17:15', NULL, NULL, NULL, 'pacific', 'telmo32', '5', 'http://farm5.static.flickr.com/4048/4181731322_c9486331e1_o.jpg', 6, '2010-08-23 17:17:15', NULL, 'http://farm5.static.flickr.com/4048/4181731322_62c2c5642c_s.jpg', NULL, '4048', 'ocean sf sanfrancisco california blackandwhite bw beach monochrome coast surf pacific monotone explore creativecommons bayarea fortfunston sfbay nikond300 nikon1685mm telmo32', '0', 4, 2, '<a href=\"http://bighugelabs.com/onblack.php?id=4181731322&amp;size=large\" rel=\"nofollow\">View On Black</a>\n<a href=\"http://www.flickr.com/photos/telmo32/sets/72157602920543114/\">Explore</a>', NULL, '1', 'http://farm5.static.flickr.com/4048/4181731322_62c2c5642c.jpg', NULL, '62c2c5642c', 'http://farm5.static.flickr.com/4048/4181731322_62c2c5642c_t.jpg', '0')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mScrapPhoto Create (0.4ms)[0m   [0;1mINSERT INTO `scrap_photos` (`url_large`, `original_id`, `url_small`, `created_at`, `latitude`, `place_id`, `woeid`, `title`, `author`, `farm`, `url_original`, `license`, `updated_at`, `accuracy`, `url_square`, `selected_photo`, `server`, `tags`, `is_family`, `keyword_id`, `scrap_xml_id`, `description`, `longitude`, `is_public`, `url_medium`, `status`, `secret`, `url_thumbnail`, `is_friend`) VALUES('http://farm3.static.flickr.com/2587/4148955562_3f817fe2f7_b.jpg', 4148955562, 'http://farm3.static.flickr.com/2587/4148955562_3f817fe2f7_m.jpg', '2010-08-23 17:17:15', NULL, NULL, NULL, 'dune', 'telmo32', '3', 'http://farm3.static.flickr.com/2587/4148955562_e4857e59d0_o.jpg', 6, '2010-08-23 17:17:15', NULL, 'http://farm3.static.flickr.com/2587/4148955562_3f817fe2f7_s.jpg', NULL, '2587', 'sf sanfrancisco california blackandwhite bw beach monochrome dune monotone creativecommons bayarea fortfunston sfbay ggnra naturalarea goldengatenationalrecreationarea nikond300 nikon1685mm telmo32', '0', 4, 2, '<a href=\"http://bighugelabs.com/onblack.php?id=4148955562&amp;size=large\" rel=\"nofollow\">View On Black</a>\n\n\nFort Funston\nSan Francisco', NULL, '1', 'http://farm3.static.flickr.com/2587/4148955562_3f817fe2f7.jpg', NULL, '3f817fe2f7', 'http://farm3.static.flickr.com/2587/4148955562_3f817fe2f7_t.jpg', '0')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/application
+Rendering home/photos
+Completed in 4525ms (View: 6, DB: 82) | 200 OK [http://localhost/home/photos?keyword_name=beach]

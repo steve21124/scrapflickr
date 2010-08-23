@@ -1,0 +1,48 @@
+<h1>Listing scrap_photos</h1>
+
+<table>
+  <tr>
+    <th>Keyword</th>
+    <th>Scrap xml</th>
+    <th>Title</th>
+    <th>Url square</th>
+    <th>Url thumbnail</th>
+    <th>Url small</th>
+    <th>Url medium</th>
+    <th>Url large</th>
+    <th>Url original</th>
+    <th>Description</th>
+    <th>Author</th>
+    <th>License</th>
+    <th>Original</th>
+    <th>Status</th>
+    <th>Selected photo</th>
+  </tr>
+
+<% @scrap_photos.each do |scrap_photo| %>
+  <tr>
+    <td><%=h scrap_photo.keyword_id %></td>
+    <td><%=h scrap_photo.scrap_xml_id %></td>
+    <td><%=h scrap_photo.title %></td>
+    <td><%=h scrap_photo.url_square %></td>
+    <td><%=h scrap_photo.url_thumbnail %></td>
+    <td><%=h scrap_photo.url_small %></td>
+    <td><%=h scrap_photo.url_medium %></td>
+    <td><%=h scrap_photo.url_large %></td>
+    <td><%=h scrap_photo.url_original %></td>
+    <td><%=h scrap_photo.description %></td>
+    <td><%=h scrap_photo.author %></td>
+    <td><%=h scrap_photo.license %></td>
+    <td><%=h scrap_photo.original_id %></td>
+    <td><%=h scrap_photo.status %></td>
+    <td><%=h scrap_photo.selected_photo %></td>
+    <td><%= link_to 'Show', scrap_photo %></td>
+    <td><%= link_to 'Edit', edit_scrap_photo_path(scrap_photo) %></td>
+    <td><%= link_to 'Destroy', scrap_photo, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New scrap_photo', new_scrap_photo_path %>
