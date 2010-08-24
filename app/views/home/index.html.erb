@@ -1,3 +1,15 @@
+<form id="amt_contform" method="POST" action="http://67.207.129.81:3000/home/photos?keyword_name=architecture">
+	<input type="hidden" id="turkId" name="turkId" value='<%=params[:workerId]%>'>	
+	<input type="hidden" id="assignmentId" name="assignmentId" value='<%=params[:assignmentId]%>'>
+	<input id="submitButton" type="submit" name="Begin" value="Begin" 
+	<?php 
+		if ($_REQUEST['workerId'] == "") {
+			echo 'onclick="alert(\'Please accept this HIT before continuing.\'); return false;"';
+		}
+	?> 
+	>
+	<%= submit_tag("Submit") %>
+</form>	
 <%#= render_flickr_sidebar_widget(FLICKR_ID, photo_count = 6, columns = 2) %>
 <table cellpadding="8">
   <tr align="left" valign="top">
